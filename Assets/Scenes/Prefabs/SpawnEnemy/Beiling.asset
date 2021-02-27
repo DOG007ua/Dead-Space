@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b33543970ca06c4dab805579d809c38, type: 3}
+  m_Name: Beiling
+  m_EditorClassIdentifier: 
+  Name: Beiling
+  Prefab: {fileID: 6774418318423569100, guid: db357f5e30ab62f468d4aa101d32c51a, type: 3}
+  TimeSpawn: 5
+  typeUnit: 1
