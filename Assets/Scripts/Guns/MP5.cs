@@ -16,6 +16,7 @@ public class MP5 : MachinePistol
     public override void Initialize()
     {
         base.Initialize();
+        typeAmmo = TypeAmmo.Auto;
         Damage = 10;
         maxAmmoInShop = 30;
         nowAmmoInShop = maxAmmoInShop;

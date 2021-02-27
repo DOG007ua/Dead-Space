@@ -17,6 +17,7 @@ public class Digle : Pistols
     public override void Initialize()
     {
         base.Initialize();
+        typeAmmo = TypeAmmo.Pistol;
         Damage = 30;
         maxAmmoInShop = 7;
         nowAmmoInShop = maxAmmoInShop;

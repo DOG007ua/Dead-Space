@@ -7,6 +7,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    protected TypeAmmo typeAmmo;
     private Transform pointSpawnBullet;
     public int maxAmmoInShop;
     public int nowAmmoInShop;
@@ -20,8 +21,8 @@ public class Gun : MonoBehaviour
     public float maxRange;
     public float Damage;
     public float Dispersion;
-    public Action<float> eventReload;
-    //public Action eventShoot;
+    public Action<TypeAmmo, int> eventReload;
+    private WeaponController weaponController;
 
     public virtual void Initialize()
     {
@@ -52,7 +53,7 @@ public class Gun : MonoBehaviour
     protected void IsReloadBetweenShoot()
     {
         if (!reloadBetweenShoot) return;
-
+        
         timeAfterShoot += Time.deltaTime;
         if (timeAfterShoot > timeBetweenShoots)
         {
@@ -63,6 +64,7 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
+        if (nowAmmoInShop == maxAmmoInShop) return;
         timeToReload = timeReloadShop;
         IsReload = true;
     }
@@ -75,8 +77,14 @@ public class Gun : MonoBehaviour
         if(timeToReload < 0)
         {
             IsReload = false;
-            nowAmmoInShop = maxAmmoInShop;
+            var needAmmo = maxAmmoInShop - nowAmmoInShop;
+            eventReload?.Invoke(typeAmmo, needAmmo);            
         }
+    }
+
+    public void SetAmmoAfterReloar(int value)
+    {
+        nowAmmoInShop += value;
     }
 
     public void Shoot(Vector3 positionShoot)

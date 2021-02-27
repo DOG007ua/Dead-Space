@@ -76,12 +76,14 @@
     <Compile Include="Assets\Scripts\Controller\PanelSelect.cs" />
     <Compile Include="Assets\Scripts\Controller\SelectTarget.cs" />
     <Compile Include="Assets\Scripts\Controller\TextPosition.cs" />
+    <Compile Include="Assets\Scripts\Guns\AmmoController.cs" />
     <Compile Include="Assets\Scripts\Guns\Bullet.cs" />
     <Compile Include="Assets\Scripts\Guns\Digle.cs" />
     <Compile Include="Assets\Scripts\Guns\Glock.cs" />
     <Compile Include="Assets\Scripts\Guns\Gun.cs" />
     <Compile Include="Assets\Scripts\Guns\MP5.cs" />
     <Compile Include="Assets\Scripts\Guns\MachinePistol.cs" />
+    <Compile Include="Assets\Scripts\Guns\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Guns\Pistols.cs" />
     <Compile Include="Assets\Scripts\Guns\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Units\Blue team\Assault.cs" />

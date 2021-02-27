@@ -9,27 +9,33 @@ public class WeaponController : MonoBehaviour
     private GameObject gamObjectMainGun;
     private UnitBehvarion target;
     private UnitBehvarion player;
+    private AmmoController ammoController;
 
     void Start()
     {
         player = transform.parent.GetComponent<UnitBehvarion>();
         MainGun = GetComponentInChildren<Gun>();
         gamObjectMainGun = MainGun.gameObject;
+        ammoController = new AmmoController();
+
+        SetMainGun(TypeGun.Digle);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Shooting();
+        KeysController();
     }
 
     public void SetMainGun(TypeGun newGun)
     {
+        MainGun.eventReload -= ReloadMainGun;
         Destroy(MainGun);
         switch(newGun)
         {
             case TypeGun.Digle:
                 MainGun = gamObjectMainGun.AddComponent<Digle>();
+                
                 break;
             case TypeGun.Glock:
                 MainGun = gamObjectMainGun.AddComponent<Glock>();
@@ -41,7 +47,17 @@ public class WeaponController : MonoBehaviour
                 MainGun = gamObjectMainGun.AddComponent<Glock>();
                 break;
         }
-        
+        MainGun.eventReload += ReloadMainGun;
+    }
+
+    private void ReloadMainGun(TypeAmmo typeAmmo, int value)
+    {
+        var ammo = ammoController.RemoveAmmo(typeAmmo, value);
+        MainGun.SetAmmoAfterReloar(ammo);
+        Debug.Log("-------------------------------------------");
+        Debug.Log($"{MainGun.name}: ammo now({MainGun.nowAmmoInShop})");
+        Debug.Log($"Now ammo pistol {ammoController.ammo[TypeAmmo.Pistol].nowAmmo}");
+        Debug.Log($"Now ammo auto {ammoController.ammo[TypeAmmo.Auto].nowAmmo}");
     }
 
     private void Shooting()
@@ -65,6 +81,14 @@ public class WeaponController : MonoBehaviour
         this.player = player;
     }
 
+    private void KeysController()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            MainGun.Reload();
+        }
+    }
+
     private void OnGUI()
     {
         if(MainGun.IsReload)
@@ -76,4 +100,6 @@ public class WeaponController : MonoBehaviour
             GUI.Label(new Rect(posInScreen.x, Screen.height - posInScreen.y, 80, 40), time);
         }        
     }
+
+
 }

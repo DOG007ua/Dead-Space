@@ -17,6 +17,7 @@ public class Glock : Pistols
     public override void Initialize()
     {
         base.Initialize();
+        typeAmmo = TypeAmmo.Pistol;
         Damage = 15;
         maxAmmoInShop = 15;
         nowAmmoInShop = maxAmmoInShop;
