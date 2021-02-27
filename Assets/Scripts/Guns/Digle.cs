@@ -6,7 +6,7 @@ public class Digle : Pistols
 {
     private void Start()
     {
-        Initialize();
+
     }
 
     private void Update()
@@ -14,9 +14,9 @@ public class Digle : Pistols
         Execute();
     }
 
-    public override void Initialize()
+    public override void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
-        base.Initialize();
+        base.Initialize(weaponAndAmmoMessage);
         typeAmmo = TypeAmmo.Pistol;
         Damage = 30;
         maxAmmoInShop = 7;

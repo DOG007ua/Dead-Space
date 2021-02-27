@@ -10,6 +10,8 @@ public class WeaponController : MonoBehaviour
     private UnitBehvarion target;
     private UnitBehvarion player;
     private AmmoController ammoController;
+    private WeaponAndAmmoMessage weaponAndAmmoMessage;
+
 
     void Start()
     {
@@ -17,7 +19,7 @@ public class WeaponController : MonoBehaviour
         MainGun = GetComponentInChildren<Gun>();
         gamObjectMainGun = MainGun.gameObject;
         ammoController = new AmmoController();
-
+        weaponAndAmmoMessage = new WeaponAndAmmoMessage(ammoController);
         SetMainGun(TypeGun.Digle);
     }
 
@@ -29,13 +31,11 @@ public class WeaponController : MonoBehaviour
 
     public void SetMainGun(TypeGun newGun)
     {
-        MainGun.eventReload -= ReloadMainGun;
         Destroy(MainGun);
         switch(newGun)
         {
             case TypeGun.Digle:
-                MainGun = gamObjectMainGun.AddComponent<Digle>();
-                
+                MainGun = gamObjectMainGun.AddComponent<Digle>();                
                 break;
             case TypeGun.Glock:
                 MainGun = gamObjectMainGun.AddComponent<Glock>();
@@ -47,17 +47,7 @@ public class WeaponController : MonoBehaviour
                 MainGun = gamObjectMainGun.AddComponent<Glock>();
                 break;
         }
-        MainGun.eventReload += ReloadMainGun;
-    }
-
-    private void ReloadMainGun(TypeAmmo typeAmmo, int value)
-    {
-        var ammo = ammoController.RemoveAmmo(typeAmmo, value);
-        MainGun.SetAmmoAfterReloar(ammo);
-        Debug.Log("-------------------------------------------");
-        Debug.Log($"{MainGun.name}: ammo now({MainGun.nowAmmoInShop})");
-        Debug.Log($"Now ammo pistol {ammoController.ammo[TypeAmmo.Pistol].nowAmmo}");
-        Debug.Log($"Now ammo auto {ammoController.ammo[TypeAmmo.Auto].nowAmmo}");
+        MainGun.Initialize(weaponAndAmmoMessage);
     }
 
     private void Shooting()

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MP5 : MachinePistol
+
 {    private void Start()
     {
-        Initialize();
+
     }
 
     private void Update()
@@ -13,9 +14,9 @@ public class MP5 : MachinePistol
         Execute();
     }
 
-    public override void Initialize()
+    public override void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
-        base.Initialize();
+        base.Initialize(weaponAndAmmoMessage);
         typeAmmo = TypeAmmo.Auto;
         Damage = 10;
         maxAmmoInShop = 30;

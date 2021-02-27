@@ -22,10 +22,11 @@ public class Gun : MonoBehaviour
     public float Damage;
     public float Dispersion;
     public Action<TypeAmmo, int> eventReload;
-    private WeaponController weaponController;
+    private WeaponAndAmmoMessage weaponAndAmmoMessage;
 
-    public virtual void Initialize()
+    public virtual void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
+        this.weaponAndAmmoMessage = weaponAndAmmoMessage;
         bulletPrefab = Resources.Load<GameObject>("Bullet");
         for(int i = 0; i < transform.childCount; i++)
         {
@@ -64,7 +65,9 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        if (nowAmmoInShop == maxAmmoInShop) return;
+        Debug.Log("Have ammo" + weaponAndAmmoMessage.HaveAmmo(typeAmmo));
+        if (nowAmmoInShop == maxAmmoInShop || 
+            !weaponAndAmmoMessage.HaveAmmo(typeAmmo)) return;
         timeToReload = timeReloadShop;
         IsReload = true;
     }
@@ -76,15 +79,17 @@ public class Gun : MonoBehaviour
         timeToReload -= Time.deltaTime;
         if(timeToReload < 0)
         {
-            IsReload = false;
-            var needAmmo = maxAmmoInShop - nowAmmoInShop;
-            eventReload?.Invoke(typeAmmo, needAmmo);            
+            IsReload = false;            
+            SetAmmoAfterReloar();          
         }
     }
 
-    public void SetAmmoAfterReloar(int value)
+    public void SetAmmoAfterReloar()
     {
-        nowAmmoInShop += value;
+        var needAmmo = maxAmmoInShop - nowAmmoInShop;
+        nowAmmoInShop += weaponAndAmmoMessage.RemoveAmmo(typeAmmo, needAmmo);
+
+        Debug.Log(weaponAndAmmoMessage.ammoController.ammo[TypeAmmo.Pistol].nowAmmo);
     }
 
     public void Shoot(Vector3 positionShoot)

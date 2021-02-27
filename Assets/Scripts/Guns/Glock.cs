@@ -6,7 +6,7 @@ public class Glock : Pistols
 {
     private void Start()
     {
-        Initialize();
+
     }
 
     private void Update()
@@ -14,9 +14,9 @@ public class Glock : Pistols
         Execute();
     }
 
-    public override void Initialize()
+    public override void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
-        base.Initialize();
+        base.Initialize(weaponAndAmmoMessage);
         typeAmmo = TypeAmmo.Pistol;
         Damage = 15;
         maxAmmoInShop = 15;

@@ -8,7 +8,7 @@ public class AmmoController : MonoBehaviour
 
     public AmmoController()
     {
-        ammo.Add(TypeAmmo.Pistol, new AmmoParams {maxAmmo = 100, nowAmmo = 20 });
+        ammo.Add(TypeAmmo.Pistol, new AmmoParams {maxAmmo = 100, nowAmmo = 10 });
         ammo.Add(TypeAmmo.Auto, new AmmoParams { maxAmmo = 200, nowAmmo = 45 });
     }
 
@@ -26,10 +26,12 @@ public class AmmoController : MonoBehaviour
     public int RemoveAmmo(TypeAmmo type, int value)
     {
         var ammoParams = ammo[type];
-        if (value > ammoParams.nowAmmo) return ammoParams.nowAmmo;
-        ammoParams.nowAmmo -= value;
+        var returnAmmo = 0;
+        if (value > ammoParams.nowAmmo) returnAmmo = ammoParams.nowAmmo;
+        else returnAmmo = value;
+        ammoParams.nowAmmo -= returnAmmo;
 
-        return value;
+        return returnAmmo;
     }
 }
 
