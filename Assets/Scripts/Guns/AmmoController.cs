@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoController : MonoBehaviour
+public class AmmoController
 {
     public Dictionary<TypeAmmo, AmmoParams> ammo = new Dictionary<TypeAmmo, AmmoParams>();
 
