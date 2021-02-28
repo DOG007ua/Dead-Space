@@ -9,10 +9,12 @@ public class Controller : MonoBehaviour
     public GameObject selectUnitCopy;
     public Material selectMaterial;
     private bool isNewPosition = false;
+    ControllerCamera controllerCamera;
 
     void Start()
     {
-
+        controllerCamera = GetComponent<ControllerCamera>();
+        controllerCamera.Initialization(-25, 25, 10, -20);
     }
 
     // Update is called once per frame
