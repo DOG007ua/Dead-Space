@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Guns\MachinePistol.cs" />
     <Compile Include="Assets\Scripts\Guns\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\Guns\Pistols.cs" />
+    <Compile Include="Assets\Scripts\Guns\WeaponAndAmmoMessage.cs" />
     <Compile Include="Assets\Scripts\Guns\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Units\Blue team\Assault.cs" />
     <Compile Include="Assets\Scripts\Units\Blue team\Enginer.cs" />
