@@ -12,6 +12,8 @@ public class WeaponController : MonoBehaviour
     private AmmoController ammoController;
     private WeaponAndAmmoMessage weaponAndAmmoMessage;
 
+    public AmmoController GetAmmoController => ammoController;
+    public Gun GetGun => MainGun;
 
     void Start()
     {

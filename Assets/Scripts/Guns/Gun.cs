@@ -6,8 +6,9 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public string name;
     public GameObject bulletPrefab;
-    protected TypeAmmo typeAmmo;
+    public TypeAmmo typeAmmo;
     private Transform pointSpawnBullet;
     public int maxAmmoInShop;
     public int nowAmmoInShop;
