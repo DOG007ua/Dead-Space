@@ -19,7 +19,7 @@ public class ControllerCamera : MonoBehaviour
         MoveCamera();
     }
 
-    public void Initialization(float borderCameraLeft, float borderCameraRight, float borderCameraTop, float borderCameraBottom)
+     void Start()
     {
         ident = 80;
         speedCamera = 5;
@@ -29,10 +29,10 @@ public class ControllerCamera : MonoBehaviour
 
         borderCamera = new BorderCamera
         { 
-            borderCameraLeft = borderCameraLeft,
-            borderCameraRight = borderCameraRight,
-            borderCameraTop = borderCameraTop,
-            borderCameraBottom = borderCameraBottom 
+            borderCameraLeft = -25,
+            borderCameraRight = 25,
+            borderCameraTop = 10,
+            borderCameraBottom = -20 
         };
     }
     
