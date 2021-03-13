@@ -54,7 +54,7 @@ public class WeaponController : MonoBehaviour
 
     private void Shooting()
     {
-        if (player.NeedMove || target == null) return;
+        if (player.controllerMove.NeedMove || target == null) return;
 
         var distanceTarget = Vector3.Distance(player.transform.position, target.transform.position);
         if (distanceTarget < MainGun.maxRange && MainGun.CanShoot)

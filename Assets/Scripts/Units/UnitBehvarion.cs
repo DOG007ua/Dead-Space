@@ -7,39 +7,39 @@ using UnityEngine;
 public class UnitBehvarion : MonoBehaviour
 {
     public float HP;
-    public float Speed;
+    
     public int ID;
     public bool isSelect;
+
+    public WeaponController weaponController { get; private set; }
+    public ControllerMove controllerMove { get; private set; }
+
+
+
     public SelectCircle selectCircle;
     public Action<UnitBehvarion> deadUnit;
-    public WeaponController weaponController { get; private set; }
+    
     public bool canSelect = true;
 
     public UnitBehvarion Target
     {
         get => selectTarget.Target;
         set => selectTarget.Target = value;
-    }
-
-    protected Vector3 positionMove;
-    public bool NeedMove { get; protected set; }
+    }    
+    
     private ObjectsInRange objectsInRange;
     private SelectTarget selectTarget;
 
-    public Vector3 PositionMove
-    {
-        get { return positionMove; }
-        set
-        {
-            positionMove = value;
-            transform.LookAt(value);
-            NeedMove = true;
-        }
-    }
+    
 
     public UnitBehvarion GetUnitBehvarion()
     {
         return this;
+    }
+
+    private void InitializationControlerMove()
+    {
+        controllerMove = new ControllerMove(this.transform, selectTarget);
     }
 
     private void InitializationSelectionTarget(string[] massNeedTagTarget)
@@ -60,14 +60,16 @@ public class UnitBehvarion : MonoBehaviour
     {
         selectCircle = new SelectCircle(gameObject);
         objectsInRange = gameObject.transform.Find("RangeUnits").GetComponent<ObjectsInRange>();
+        
         InitializationSelectionTarget(massNeedTagTarget);
+        InitializationControlerMove(); 
         InitializeWeaponController();
     }
 
     public void Execute()
     {
         selectCircle.Execute();
-        LookAtTarget();
+        controllerMove.Execute();
     }
 
     void Start()
@@ -94,28 +96,7 @@ public class UnitBehvarion : MonoBehaviour
         }        
     }
 
-    public void LookAtTarget()
-    {
-        if (Target != null && !NeedMove) transform.LookAt(Target.transform);
-    }  
-
-    protected void DeletePositionMove()
-    {
-        NeedMove = false;
-    }
-
-    protected void Move()
-    {
-        if (NeedMove)
-        {
-            transform.position += transform.forward * Speed * Time.deltaTime;
-            var distance = Vector3.Distance(transform.position, positionMove);
-            if(distance < 0.1f)
-            {
-                DeletePositionMove();
-            }
-        }
-    }
+    
 
     public void Dead()
     {

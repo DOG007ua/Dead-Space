@@ -136,7 +136,7 @@ public class Controller : MonoBehaviour
     {
         if(isNewPosition)
         {
-            unit.PositionMove = position;
+            unit.controllerMove.PositionMove = position;
             isNewPosition = false;
         }        
     }

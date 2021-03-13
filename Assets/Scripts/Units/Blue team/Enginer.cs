@@ -10,13 +10,12 @@ public class Enginer : Soldier
         Initialization(this.gameObject, new string[] { "Enemy" });
         HP = 100;
         MaxAmmo = 30;
-        Speed = 5;
+        controllerMove.Speed = 5;
     }
 
     private void Update()
     {
         Execute();
         MouseDown();
-        Move();
     }
 }

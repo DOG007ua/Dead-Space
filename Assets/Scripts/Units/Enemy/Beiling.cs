@@ -8,8 +8,8 @@ public class Beiling : UnitBehvarion
     {
         Initialization(this.gameObject, new string[] { "BlueTeam" });
         HP = 100;
-        Speed = 3;
-        PositionMove = transform.position;
+        controllerMove.Speed = 3;
+        controllerMove.PositionMove = transform.position;
         canSelect = false;
     }
 
@@ -17,7 +17,6 @@ public class Beiling : UnitBehvarion
     {
         Execute();
         MoveToTarget();
-        Move();        
         DeleteBeiling();
     }
 
@@ -38,7 +37,7 @@ public class Beiling : UnitBehvarion
     {
         if(Target != null)
         {
-            PositionMove = Target.transform.position;
+            controllerMove.PositionMove = Target.transform.position;
         }
     }
 }

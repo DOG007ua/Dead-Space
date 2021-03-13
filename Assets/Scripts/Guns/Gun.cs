@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public string name;
+    public string nameGun;
     public GameObject bulletPrefab;
     public TypeAmmo typeAmmo;
     private Transform pointSpawnBullet;

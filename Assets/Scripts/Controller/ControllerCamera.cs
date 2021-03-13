@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControllerCamera : MonoBehaviour
 {
-    private Camera camera;
+    private Camera mainCamera;
     private Point borders;
     private int ident;
     private float speedCamera;
@@ -23,7 +23,7 @@ public class ControllerCamera : MonoBehaviour
     {
         ident = 80;
         speedCamera = 5;
-        camera = Camera.allCameras[0];
+        mainCamera = Camera.allCameras[0];
         borders = new Point(Screen.width, Screen.height);
         pointMove = new Vector3();
 
@@ -39,7 +39,7 @@ public class ControllerCamera : MonoBehaviour
 
     private void MoveCamera()
     {
-        camera.transform.position += pointMove * speedCamera * Time.deltaTime;
+        mainCamera.transform.position += pointMove * speedCamera * Time.deltaTime;
     }
 
     private void SetDirectionMoveCamera()
@@ -50,14 +50,14 @@ public class ControllerCamera : MonoBehaviour
        
         if (positionMouse.x < ident)
         {
-            if (camera.transform.position.x < borderCamera.borderCameraLeft) return;
+            if (mainCamera.transform.position.x < borderCamera.borderCameraLeft) return;
 
             var coef = 1 - positionMouse.x / ident;
             pointMove.x = -Mathf.Lerp(0, speedCamera, coef);
         } 
         else if (positionMouse.x > borders.X - ident)
         {
-            if (camera.transform.position.x > borderCamera.borderCameraRight) return;
+            if (mainCamera.transform.position.x > borderCamera.borderCameraRight) return;
 
             var delta = borders.X - positionMouse.x;
             var coef = 1 - delta / ident;
@@ -67,14 +67,14 @@ public class ControllerCamera : MonoBehaviour
         //Вниз
         if (positionMouse.y < ident)
         {
-            if (camera.transform.position.z < borderCamera.borderCameraBottom) return;
+            if (mainCamera.transform.position.z < borderCamera.borderCameraBottom) return;
 
             var coef = 1 - positionMouse.y / ident;
             pointMove.z = -Mathf.Lerp(0, speedCamera, coef);
         }
         else if (positionMouse.y > borders.Y - ident)
         {
-            if (camera.transform.position.z > borderCamera.borderCameraTop) return;
+            if (mainCamera.transform.position.z > borderCamera.borderCameraTop) return;
 
             var delta = borders.Y - positionMouse.y;
             var coef = 1 - delta / ident;

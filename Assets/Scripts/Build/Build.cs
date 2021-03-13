@@ -8,7 +8,7 @@ public class Build : MonoBehaviour
 {
     public SpawnManagerScriptableObject unitsBuild;
     private Vector3 positionSpawn;
-    private GameObject gameObject;
+    private GameObject gameObjectBuild;
     public float timeLeft;
     public bool isSpawn;
     BuildUnit unitSpawnNow;
@@ -24,12 +24,12 @@ public class Build : MonoBehaviour
         }
     }
 
-    public void Initialized(GameObject gameObject)
+    public void Initialized(GameObject gameObjectBuild)
     {
         timeLeft = 0;
-        this.gameObject = gameObject;
-        positionSpawn = gameObject.transform.Find("SpawnPoint").position;
-        if (positionSpawn == null) Debug.Log($"Нет точки спавна для {gameObject.name}");
+        this.gameObjectBuild = gameObjectBuild;
+        positionSpawn = gameObjectBuild.transform.Find("SpawnPoint").position;
+        if (positionSpawn == null) Debug.Log($"Нет точки спавна для {gameObjectBuild.name}");
     }
 
     public void Execute()
@@ -55,7 +55,7 @@ public class Build : MonoBehaviour
     {
         if (positionSpawn == null)
         {
-            if (positionSpawn == null) Debug.Log($"Нет точки спавна для {gameObject.name}");
+            if (positionSpawn == null) Debug.Log($"Нет точки спавна для {gameObjectBuild.name}");
             return;
         }
 

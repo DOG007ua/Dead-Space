@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Units\Enemy\Beiling.cs" />
     <Compile Include="Assets\Scripts\Units\EnumUnits.cs" />
     <Compile Include="Assets\Scripts\Units\InformationUnit.cs" />
+    <Compile Include="Assets\Scripts\Units\Move\ControllerMove.cs" />
     <Compile Include="Assets\Scripts\Units\ObjectsInRange.cs" />
     <Compile Include="Assets\Scripts\Units\SelectCircle.cs" />
     <Compile Include="Assets\Scripts\Units\UnitBehvarion.cs" />

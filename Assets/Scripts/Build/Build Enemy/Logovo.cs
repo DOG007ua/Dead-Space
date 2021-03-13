@@ -27,6 +27,6 @@ public class Logovo : Build
     void AddMove(GameObject go)
     {
         UnitBehvarion lastUnit = go.GetComponent<UnitBehvarion>();
-        lastUnit.PositionMove = new Vector3(0, 0.5f, 0);
+        lastUnit.controllerMove.PositionMove = new Vector3(0, 0.5f, 0);
     }
 }
