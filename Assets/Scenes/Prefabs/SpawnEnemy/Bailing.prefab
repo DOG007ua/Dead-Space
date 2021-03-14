@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5380301779228150757}
   - component: {fileID: 1374777804747606211}
   - component: {fileID: 3924995981254165189}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RangeUnits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  Speed: 0
   ID: 0
+  isSelect: 0
+  canSelect: 1
 --- !u!54 &1361728988381316304
 Rigidbody:
   m_ObjectHideFlags: 0

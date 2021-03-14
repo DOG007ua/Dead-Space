@@ -36,7 +36,7 @@ public class ViewerInterfaceGun : IVisualInterface
 
         SetTextAmmoMax();
         SetTextAmmoNow();
-        SetTextGunName();
+        SetTextGunName();   
     }
 
     private void SetTextAmmoMax()
