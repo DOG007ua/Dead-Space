@@ -12,7 +12,8 @@ public class UnitBehvarion : MonoBehaviour
     public bool isSelect;
     public WeaponController weaponController { get; private set; }
     public ControllerMove controllerMove { get; private set; }
-
+    private InformationUnit informationUnit;
+    public InformationUnit InformationUnit => informationUnit;
 
 
     public SelectCircle selectCircle;
@@ -63,6 +64,7 @@ public class UnitBehvarion : MonoBehaviour
         InitializationSelectionTarget(massNeedTagTarget);
         InitializationControlerMove(); 
         InitializeWeaponController();
+        informationUnit = new InformationUnit(this);
     }
 
     public void Execute()

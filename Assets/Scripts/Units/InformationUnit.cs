@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InformationUnit : MonoBehaviour
+public class InformationUnit
 {
     public float HP => unit.HP;
     public string GunName => gun.nameGun;
@@ -17,8 +17,8 @@ public class InformationUnit : MonoBehaviour
     public InformationUnit(UnitBehvarion unit)
     {
         this.unit = unit; 
-        gun = unit.weaponController.GetGun;
-        ammoController = unit.weaponController.GetAmmoController;
+        gun = unit.weaponController?.GetGun;
+        ammoController = unit.weaponController?.GetAmmoController;
     }
 
 }

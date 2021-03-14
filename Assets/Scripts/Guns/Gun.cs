@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
     private WeaponAndAmmoMessage weaponAndAmmoMessage;
 
     public virtual void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
-    {
+    {        
         this.weaponAndAmmoMessage = weaponAndAmmoMessage;
         bulletPrefab = Resources.Load<GameObject>("Bullet");
         for(int i = 0; i < transform.childCount; i++)

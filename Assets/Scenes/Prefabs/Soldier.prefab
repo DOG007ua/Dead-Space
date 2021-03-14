@@ -344,8 +344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  Speed: 0
   ID: 0
+  isSelect: 0
+  canSelect: 1
   MaxAmmo: 0
   Exp: 0
 --- !u!54 &1645405318
@@ -470,17 +471,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d94448d5efcc3764bb7221820241832b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameGun: 
   bulletPrefab: {fileID: 0}
-  positionSpawnBullet: {x: 0, y: 0, z: 0}
+  typeAmmo: 0
   maxAmmoInShop: 0
   nowAmmoInShop: 0
-  timeReloadShop: 0
-  timeBetweenShoots: 0
   timeAfterShoot: 0
-  timeAfterStartReload: 0
-  isReload: 0
-  canShoot: 1
+  timeToReload: 0
+  IsReload: 0
+  reloadBetweenShoot: 0
+  CanShoot: 1
   maxRange: 0
+  Damage: 0
+  Dispersion: 0
 --- !u!1 &7701091715457332566
 GameObject:
   m_ObjectHideFlags: 0

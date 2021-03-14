@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SelectUnitController
 {
+    public event Action<UnitBehvarion> eventSelectNewUnit;
     private UnitBehvarion selectUnit;
     private CopyUnitController copyUnitController;
     private bool isNewPosition = false;
@@ -62,6 +64,8 @@ public class SelectUnitController
         selectUnit = go.GetComponent<UnitBehvarion>();
         selectUnit.Select(true);
         CreateCopySelectUnit(go);
+
+        eventSelectNewUnit?.Invoke(selectUnit);
     }
 
     void CreateCopySelectUnit(GameObject originalGO)

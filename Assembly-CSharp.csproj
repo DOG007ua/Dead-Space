@@ -77,7 +77,6 @@
     <Compile Include="Assets\Scripts\Controller\ControllerPoints.cs" />
     <Compile Include="Assets\Scripts\Controller\CopyMove.cs" />
     <Compile Include="Assets\Scripts\Controller\CopyUnitController.cs" />
-    <Compile Include="Assets\Scripts\Controller\PanelSelect.cs" />
     <Compile Include="Assets\Scripts\Controller\SelectTarget.cs" />
     <Compile Include="Assets\Scripts\Controller\SelectUnitController.cs" />
     <Compile Include="Assets\Scripts\Guns\AmmoController.cs" />
@@ -105,6 +104,11 @@
     <Compile Include="Assets\Scripts\Units\ObjectsInRange.cs" />
     <Compile Include="Assets\Scripts\Units\SelectCircle.cs" />
     <Compile Include="Assets\Scripts\Units\UnitBehvarion.cs" />
+    <Compile Include="Assets\Scripts\VisualInterface\IVisualInterface.cs" />
+    <Compile Include="Assets\Scripts\VisualInterface\ViewerInterfaceGun.cs" />
+    <Compile Include="Assets\Scripts\VisualInterface\ViewerInterfaceUnit.cs" />
+    <Compile Include="Assets\Scripts\VisualInterface\VisualInterfaceController.cs" />
+    <Compile Include="Assets\Scripts\VisualInterface\VisualObjectData.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

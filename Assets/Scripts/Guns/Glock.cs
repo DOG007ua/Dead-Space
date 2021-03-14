@@ -17,6 +17,7 @@ public class Glock : Pistols
     public override void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
         base.Initialize(weaponAndAmmoMessage);
+        nameGun = GetType().ToString();
         typeAmmo = TypeAmmo.Pistol;
         Damage = 15;
         maxAmmoInShop = 15;

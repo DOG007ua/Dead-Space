@@ -17,6 +17,7 @@ public class Digle : Pistols
     public override void Initialize(WeaponAndAmmoMessage weaponAndAmmoMessage)
     {
         base.Initialize(weaponAndAmmoMessage);
+        nameGun = GetType().ToString();
         typeAmmo = TypeAmmo.Pistol;
         Damage = 30;
         maxAmmoInShop = 7;
