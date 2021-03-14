@@ -4,6 +4,8 @@ using UnityEngine;
 
 public interface IInputController
 {
+    bool isEnable { get; set; }
+
     void FirstTypeClick();
     void SecondTypeClick();
     void Execute();

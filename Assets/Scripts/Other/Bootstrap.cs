@@ -5,14 +5,16 @@ using UnityEngine;
 public class Bootstrap : MonoBehaviour
 {
     private ControllerInput controllerInput;
-    [SerializeField]private SettingsGameData settings;
+    private SelectUnitController selectUnitController;
+    public SettingsGameData settings;
+
 
     void Start()
     {
         SettingsGame.Instance.settingsGameData = settings;
+        selectUnitController = new SelectUnitController();
         controllerInput = gameObject.AddComponent<ControllerInput>();
-        controllerInput.Initialize(new InputInGame());
-        
+        controllerInput.Initialize(new InputInGame(selectUnitController));        
     }
 
     // Update is called once per frame

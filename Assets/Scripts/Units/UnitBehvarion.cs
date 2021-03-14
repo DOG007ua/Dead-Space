@@ -10,7 +10,6 @@ public class UnitBehvarion : MonoBehaviour
     
     public int ID;
     public bool isSelect;
-
     public WeaponController weaponController { get; private set; }
     public ControllerMove controllerMove { get; private set; }
 
